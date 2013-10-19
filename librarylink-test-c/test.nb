@@ -1,0 +1,84 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      2326,         75]
+NotebookOptionsPosition[      1963,         57]
+NotebookOutlinePosition[      2321,         73]
+CellTagsIndexPosition[      2278,         70]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<CCompilerDriver`\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"$LibraryPath", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"$LibraryPath", ",", 
+     RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}]}], ";"}]}], "Code",
+ CellChangeTimes->{{3.589745161893662*^9, 3.589745175789262*^9}, {
+  3.5902397396743717`*^9, 3.590239751185075*^9}, {3.590423531809593*^9, 
+  3.5904235384032297`*^9}, {3.590929544682131*^9, 3.590929586454932*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Function01", "=", 
+   RowBox[{"LibraryFunctionLoad", "[", 
+    RowBox[{"\"\<libmylib\>\"", ",", "\"\<Function01\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"Integer", ",", "Real"}], "}"}], ",", "Real", ",", 
+     RowBox[{"\"\<LibraryPath\>\"", "\[Rule]", 
+      RowBox[{"NotebookDirectory", "[", "]"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Function01", "[", 
+  RowBox[{"10", ",", "1.0"}], "]"}]}], "Input",
+ CellChangeTimes->{3.590929582343689*^9}],
+
+Cell[BoxData["45.`"], "Output",
+ CellChangeTimes->{
+  3.590239521528183*^9, 3.590239556940681*^9, 3.590239630500239*^9, 
+   3.59023972953759*^9, {3.590239804074522*^9, 3.590239821680777*^9}, 
+   3.5902499799990377`*^9, {3.590929536636456*^9, 3.5909295899300747`*^9}, 
+   3.590929758221025*^9}]
+}, Open  ]]
+},
+WindowSize->{667, 752},
+WindowMargins->{{140, Automatic}, {42, Automatic}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
+2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 564, 11, 82, "Code"],
+Cell[CellGroupData[{
+Cell[1146, 35, 505, 12, 63, "Input"],
+Cell[1654, 49, 293, 5, 62, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

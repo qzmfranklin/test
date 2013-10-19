@@ -1,0 +1,217 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CARDOF_EVALSTRS	addtwotm.c	/^#define CARDOF_EVALSTRS /;"	d	file:
+CARDOF_EVALSTRS	dottm.c	/^#define CARDOF_EVALSTRS /;"	d	file:
+CARDOF_EVALSTRS	sumvtm.c	/^#define CARDOF_EVALSTRS /;"	d	file:
+CC	Makefile	/^CC=icc$/;"	m
+CCflag	Makefile	/^CCflag=-Wall -O0$/;"	m
+EVALSTRS_AS_BYTESTRINGS	addtwotm.c	/^#	define EVALSTRS_AS_BYTESTRINGS /;"	d	file:
+EVALSTRS_AS_BYTESTRINGS	dottm.c	/^#	define EVALSTRS_AS_BYTESTRINGS /;"	d	file:
+EVALSTRS_AS_BYTESTRINGS	sumvtm.c	/^#	define EVALSTRS_AS_BYTESTRINGS /;"	d	file:
+F	Makefile	/^F=ifort$/;"	m
+F_module_f	Makefile	/^F_module_f=fmodule.f$/;"	m
+F_module_o	Makefile	/^F_module_o=fmodule.o$/;"	m
+Fflag	Makefile	/^Fflag=-warn all -O0$/;"	m
+MLAbort	addtwotm.c	/^int MLAbort = 0;$/;"	v
+MLAbort	dottm.c	/^int MLAbort = 0;$/;"	v
+MLAbort	sumvtm.c	/^int MLAbort = 0;$/;"	v
+MLAnswer	addtwotm.c	/^mlapi_packet MLAnswer( MLINK mlp)$/;"	f	signature:( MLINK mlp)
+MLAnswer	dottm.c	/^mlapi_packet MLAnswer( MLINK mlp)$/;"	f	signature:( MLINK mlp)
+MLAnswer	sumvtm.c	/^mlapi_packet MLAnswer( MLINK mlp)$/;"	f	signature:( MLINK mlp)
+MLDoCallPacket	addtwotm.c	/^int MLDoCallPacket( MLINK mlp)$/;"	f	signature:( MLINK mlp)
+MLDoCallPacket	dottm.c	/^int MLDoCallPacket( MLINK mlp)$/;"	f	signature:( MLINK mlp)
+MLDoCallPacket	sumvtm.c	/^int MLDoCallPacket( MLINK mlp)$/;"	f	signature:( MLINK mlp)
+MLDone	addtwotm.c	/^int MLDone  = 0;$/;"	v
+MLDone	dottm.c	/^int MLDone  = 0;$/;"	v
+MLDone	sumvtm.c	/^int MLDone  = 0;$/;"	v
+MLEvaluate	addtwotm.c	/^int MLEvaluate( MLINK mlp, char* s)$/;"	f	signature:( MLINK mlp, char* s)
+MLEvaluate	dottm.c	/^int MLEvaluate( MLINK mlp, char* s)$/;"	f	signature:( MLINK mlp, char* s)
+MLEvaluate	sumvtm.c	/^int MLEvaluate( MLINK mlp, char* s)$/;"	f	signature:( MLINK mlp, char* s)
+MLEvaluateString	addtwotm.c	/^int MLEvaluateString( MLINK mlp, char* s)$/;"	f	signature:( MLINK mlp, char* s)
+MLEvaluateString	dottm.c	/^int MLEvaluateString( MLINK mlp, char* s)$/;"	f	signature:( MLINK mlp, char* s)
+MLEvaluateString	sumvtm.c	/^int MLEvaluateString( MLINK mlp, char* s)$/;"	f	signature:( MLINK mlp, char* s)
+MLInstall	addtwotm.c	/^int MLInstall( MLINK mlp)$/;"	f	signature:( MLINK mlp)
+MLInstall	dottm.c	/^int MLInstall( MLINK mlp)$/;"	f	signature:( MLINK mlp)
+MLInstall	sumvtm.c	/^int MLInstall( MLINK mlp)$/;"	f	signature:( MLINK mlp)
+MLMDEFN	addtwotm.c	/^MLMDEFN( void, MLDefaultHandler, ( MLINK mlp, int message, int n))$/;"	f	signature:( void, MLDefaultHandler, ( MLINK mlp, int message, int n))
+MLMDEFN	dottm.c	/^MLMDEFN( void, MLDefaultHandler, ( MLINK mlp, int message, int n))$/;"	f	signature:( void, MLDefaultHandler, ( MLINK mlp, int message, int n))
+MLMDEFN	sumvtm.c	/^MLMDEFN( void, MLDefaultHandler, ( MLINK mlp, int message, int n))$/;"	f	signature:( void, MLDefaultHandler, ( MLINK mlp, int message, int n))
+MLMain	addtwotm.c	/^int MLMain( int argc, char ** argv)$/;"	f	signature:( int argc, char ** argv)
+MLMain	dottm.c	/^int MLMain( int argc, char ** argv)$/;"	f	signature:( int argc, char ** argv)
+MLMain	sumvtm.c	/^int MLMain( int argc, char ** argv)$/;"	f	signature:( int argc, char ** argv)
+MLMainArgv	addtwotm.c	/^int MLMainArgv( char** argv, char** argv_end) \/* note not FAR pointers *\/$/;"	f	signature:( char** argv, char** argv_end)
+MLMainArgv	dottm.c	/^int MLMainArgv( char** argv, char** argv_end) \/* note not FAR pointers *\/$/;"	f	signature:( char** argv, char** argv_end)
+MLMainArgv	sumvtm.c	/^int MLMainArgv( char** argv, char** argv_end) \/* note not FAR pointers *\/$/;"	f	signature:( char** argv, char** argv_end)
+MLMainString	addtwotm.c	/^int MLMainString( char *commandline)$/;"	f	signature:( char *commandline)
+MLMainString	dottm.c	/^int MLMainString( char *commandline)$/;"	f	signature:( char *commandline)
+MLMainString	sumvtm.c	/^int MLMainString( char *commandline)$/;"	f	signature:( char *commandline)
+MLSpecialCharacter	addtwotm.c	/^long MLSpecialCharacter = '\\0';$/;"	v
+MLSpecialCharacter	dottm.c	/^long MLSpecialCharacter = '\\0';$/;"	v
+MLSpecialCharacter	sumvtm.c	/^long MLSpecialCharacter = '\\0';$/;"	v
+MLYDEFN	addtwotm.c	/^MLYDEFN( int, MLDefaultYielder, ( MLINK mlp, MLYieldParameters yp))$/;"	f	signature:( int, MLDefaultYielder, ( MLINK mlp, MLYieldParameters yp))
+MLYDEFN	dottm.c	/^MLYDEFN( int, MLDefaultYielder, ( MLINK mlp, MLYieldParameters yp))$/;"	f	signature:( int, MLDefaultYielder, ( MLINK mlp, MLYieldParameters yp))
+MLYDEFN	sumvtm.c	/^MLYDEFN( int, MLDefaultYielder, ( MLINK mlp, MLYieldParameters yp))$/;"	f	signature:( int, MLDefaultYielder, ( MLINK mlp, MLYieldParameters yp))
+ML_libs	Makefile	/^ML_libs=-lMLi3 -lstdc++ -framework Foundation $/;"	m
+MPREP	Makefile	/^MPREP=mprep$/;"	m
+MPREP_REVISION	addtwotm.c	/^#define MPREP_REVISION /;"	d	file:
+MPREP_REVISION	dottm.c	/^#define MPREP_REVISION /;"	d	file:
+MPREP_REVISION	sumvtm.c	/^#define MPREP_REVISION /;"	d	file:
+_MLDoCallPacket	addtwotm.c	/^int  _MLDoCallPacket P(( MLINK, struct func[], int));$/;"	p	file:	signature:( MLINK, struct func[], int)
+_MLDoCallPacket	addtwotm.c	/^int _MLDoCallPacket( MLINK mlp, struct func functable[], int nfuncs)$/;"	f	signature:( MLINK mlp, struct func functable[], int nfuncs)
+_MLDoCallPacket	dottm.c	/^int  _MLDoCallPacket P(( MLINK, struct func[], int));$/;"	p	file:	signature:( MLINK, struct func[], int)
+_MLDoCallPacket	dottm.c	/^int _MLDoCallPacket( MLINK mlp, struct func functable[], int nfuncs)$/;"	f	signature:( MLINK mlp, struct func functable[], int nfuncs)
+_MLDoCallPacket	sumvtm.c	/^int  _MLDoCallPacket P(( MLINK, struct func[], int));$/;"	p	file:	signature:( MLINK, struct func[], int)
+_MLDoCallPacket	sumvtm.c	/^int _MLDoCallPacket( MLINK mlp, struct func functable[], int nfuncs)$/;"	f	signature:( MLINK mlp, struct func functable[], int nfuncs)
+_MLMain	addtwotm.c	/^static int _MLMain( char **argv, char **argv_end, char *commandline)$/;"	f	file:	signature:( char **argv, char **argv_end, char *commandline)
+_MLMain	dottm.c	/^static int _MLMain( char **argv, char **argv_end, char *commandline)$/;"	f	file:	signature:( char **argv, char **argv_end, char *commandline)
+_MLMain	sumvtm.c	/^static int _MLMain( char **argv, char **argv_end, char *commandline)$/;"	f	file:	signature:( char **argv, char **argv_end, char *commandline)
+_definepattern	addtwotm.c	/^static int  _definepattern( MLINK mlp, char* patt, char* args, int func_n)$/;"	f	file:	signature:( MLINK mlp, char* patt, char* args, int func_n)
+_definepattern	addtwotm.c	/^static int _definepattern P(( MLINK, char*, char*, int));$/;"	p	file:	signature:( MLINK, char*, char*, int)
+_definepattern	dottm.c	/^static int  _definepattern( MLINK mlp, char* patt, char* args, int func_n)$/;"	f	file:	signature:( MLINK mlp, char* patt, char* args, int func_n)
+_definepattern	dottm.c	/^static int _definepattern P(( MLINK, char*, char*, int));$/;"	p	file:	signature:( MLINK, char*, char*, int)
+_definepattern	sumvtm.c	/^static int  _definepattern( MLINK mlp, char* patt, char* args, int func_n)$/;"	f	file:	signature:( MLINK mlp, char* patt, char* args, int func_n)
+_definepattern	sumvtm.c	/^static int _definepattern P(( MLINK, char*, char*, int));$/;"	p	file:	signature:( MLINK, char*, char*, int)
+_doevalstr	addtwotm.c	/^static int  _doevalstr( MLINK mlp, int n)$/;"	f	file:	signature:( MLINK mlp, int n)
+_doevalstr	dottm.c	/^static int  _doevalstr( MLINK mlp, int n)$/;"	f	file:	signature:( MLINK mlp, int n)
+_doevalstr	sumvtm.c	/^static int  _doevalstr( MLINK mlp, int n)$/;"	f	file:	signature:( MLINK mlp, int n)
+_handle_user_event	addtwotm.c	/^extern int _handle_user_event( unsigned long ticks);$/;"	p	file:	signature:( unsigned long ticks)
+_handle_user_event	addtwotm.c	/^int _handle_user_event( unsigned long ticks)$/;"	f	signature:( unsigned long ticks)
+_handle_user_event	dottm.c	/^extern int _handle_user_event( unsigned long ticks);$/;"	p	file:	signature:( unsigned long ticks)
+_handle_user_event	dottm.c	/^int _handle_user_event( unsigned long ticks)$/;"	f	signature:( unsigned long ticks)
+_handle_user_event	sumvtm.c	/^extern int _handle_user_event( unsigned long ticks);$/;"	p	file:	signature:( unsigned long ticks)
+_handle_user_event	sumvtm.c	/^int _handle_user_event( unsigned long ticks)$/;"	f	signature:( unsigned long ticks)
+_tr0	addtwotm.c	/^static int _tr0( MLINK mlp)$/;"	f	file:	signature:( MLINK mlp)
+_tr0	dottm.c	/^static int _tr0( MLINK mlp)$/;"	f	file:	signature:( MLINK mlp)
+_tr0	sumvtm.c	/^static int _tr0( MLINK mlp)$/;"	f	file:	signature:( MLINK mlp)
+_tramps	addtwotm.c	/^	} _tramps[1] = {$/;"	v	typeref:struct:func	file:
+_tramps	dottm.c	/^	} _tramps[1] = {$/;"	v	typeref:struct:func	file:
+_tramps	sumvtm.c	/^	} _tramps[1] = {$/;"	v	typeref:struct:func	file:
+about_filter	addtwotm.c	/^static pascal Boolean about_filter(DialogPtr dptr, EventRecord *theEvent, short *theItem){$/;"	f	file:	signature:(DialogPtr dptr, EventRecord *theEvent, short *theItem)
+about_filter	dottm.c	/^static pascal Boolean about_filter(DialogPtr dptr, EventRecord *theEvent, short *theItem){$/;"	f	file:	signature:(DialogPtr dptr, EventRecord *theEvent, short *theItem)
+about_filter	sumvtm.c	/^static pascal Boolean about_filter(DialogPtr dptr, EventRecord *theEvent, short *theItem){$/;"	f	file:	signature:(DialogPtr dptr, EventRecord *theEvent, short *theItem)
+about_filter_upp	addtwotm.c	/^ModalFilterUPP about_filter_upp;$/;"	v
+about_filter_upp	dottm.c	/^ModalFilterUPP about_filter_upp;$/;"	v
+about_filter_upp	sumvtm.c	/^ModalFilterUPP about_filter_upp;$/;"	v
+addtwo	addtwo.c	/^double addtwo(double x, double y){$/;"	f	signature:(double x, double y)
+addtwo	addtwotm.c	/^double addtwo P(( double _tp1, double _tp2));$/;"	p	file:	signature:( double _tp1, double _tp2)
+addtwof	fmodule.f	/^        subroutine addtwof(/;"	s	module:fmodule
+addtwofc	fmodule.f	/^        subroutine addtwofc(/;"	s	module:fmodule
+do_about_box	addtwotm.c	/^extern void do_about_box( void);$/;"	p	file:	signature:( void)
+do_about_box	addtwotm.c	/^void do_about_box( void)$/;"	f	signature:( void)
+do_about_box	dottm.c	/^extern void do_about_box( void);$/;"	p	file:	signature:( void)
+do_about_box	dottm.c	/^void do_about_box( void)$/;"	f	signature:( void)
+do_about_box	sumvtm.c	/^extern void do_about_box( void);$/;"	p	file:	signature:( void)
+do_about_box	sumvtm.c	/^void do_about_box( void)$/;"	f	signature:( void)
+dot	dot.c	/^double dot(double *x, long xlen, double *y, long ylen){$/;"	f	signature:(double *x, long xlen, double *y, long ylen)
+dot	dottm.c	/^double dot P(( double * _tp1, long _tpl1, double * _tp2, long _tpl2));$/;"	p	file:	signature:( double * _tp1, long _tpl1, double * _tp2, long _tpl2)
+dot	fmodule.f	/^        subroutine dot(/;"	s	module:fmodule
+exe	Makefile	/^exe=addtwo sumv dot test$/;"	m
+f_func	addtwotm.c	/^	int   (*f_func)P((MLINK));$/;"	m	struct:func	file:	access:public
+f_func	dottm.c	/^	int   (*f_func)P((MLINK));$/;"	m	struct:func	file:	access:public
+f_func	sumvtm.c	/^	int   (*f_func)P((MLINK));$/;"	m	struct:func	file:	access:public
+f_name	addtwotm.c	/^	const char  *f_name;$/;"	m	struct:func	file:	access:public
+f_name	dottm.c	/^	const char  *f_name;$/;"	m	struct:func	file:	access:public
+f_name	sumvtm.c	/^	const char  *f_name;$/;"	m	struct:func	file:	access:public
+f_nargs	addtwotm.c	/^	int   f_nargs;$/;"	m	struct:func	file:	access:public
+f_nargs	dottm.c	/^	int   f_nargs;$/;"	m	struct:func	file:	access:public
+f_nargs	sumvtm.c	/^	int   f_nargs;$/;"	m	struct:func	file:	access:public
+fmodule	fmodule.f	/^      module fmodule$/;"	m
+func	addtwotm.c	/^static struct func {$/;"	s	file:
+func	dottm.c	/^static struct func {$/;"	s	file:
+func	sumvtm.c	/^static struct func {$/;"	s	file:
+func::f_func	addtwotm.c	/^	int   (*f_func)P((MLINK));$/;"	m	struct:func	file:	access:public
+func::f_func	dottm.c	/^	int   (*f_func)P((MLINK));$/;"	m	struct:func	file:	access:public
+func::f_func	sumvtm.c	/^	int   (*f_func)P((MLINK));$/;"	m	struct:func	file:	access:public
+func::f_name	addtwotm.c	/^	const char  *f_name;$/;"	m	struct:func	file:	access:public
+func::f_name	dottm.c	/^	const char  *f_name;$/;"	m	struct:func	file:	access:public
+func::f_name	sumvtm.c	/^	const char  *f_name;$/;"	m	struct:func	file:	access:public
+func::f_nargs	addtwotm.c	/^	int   f_nargs;$/;"	m	struct:func	file:	access:public
+func::f_nargs	dottm.c	/^	int   f_nargs;$/;"	m	struct:func	file:	access:public
+func::f_nargs	sumvtm.c	/^	int   f_nargs;$/;"	m	struct:func	file:	access:public
+func::manual	addtwotm.c	/^	int   manual;$/;"	m	struct:func	file:	access:public
+func::manual	dottm.c	/^	int   manual;$/;"	m	struct:func	file:	access:public
+func::manual	sumvtm.c	/^	int   manual;$/;"	m	struct:func	file:	access:public
+handle_core_ae	addtwotm.c	/^extern pascal OSErr handle_core_ae( const AppleEvent* event, AppleEvent* reply, long refcon);$/;"	p	file:	signature:( const AppleEvent* event, AppleEvent* reply, long refcon)
+handle_core_ae	addtwotm.c	/^pascal OSErr handle_core_ae( const AppleEvent* event, AppleEvent* reply, long refcon)$/;"	f	signature:( const AppleEvent* event, AppleEvent* reply, long refcon)
+handle_core_ae	dottm.c	/^extern pascal OSErr handle_core_ae( const AppleEvent* event, AppleEvent* reply, long refcon);$/;"	p	file:	signature:( const AppleEvent* event, AppleEvent* reply, long refcon)
+handle_core_ae	dottm.c	/^pascal OSErr handle_core_ae( const AppleEvent* event, AppleEvent* reply, long refcon)$/;"	f	signature:( const AppleEvent* event, AppleEvent* reply, long refcon)
+handle_core_ae	sumvtm.c	/^extern pascal OSErr handle_core_ae( const AppleEvent* event, AppleEvent* reply, long refcon);$/;"	p	file:	signature:( const AppleEvent* event, AppleEvent* reply, long refcon)
+handle_core_ae	sumvtm.c	/^pascal OSErr handle_core_ae( const AppleEvent* event, AppleEvent* reply, long refcon)$/;"	f	signature:( const AppleEvent* event, AppleEvent* reply, long refcon)
+handle_core_ae_upp	addtwotm.c	/^AEEventHandlerUPP handle_core_ae_upp;$/;"	v
+handle_core_ae_upp	dottm.c	/^AEEventHandlerUPP handle_core_ae_upp;$/;"	v
+handle_core_ae_upp	sumvtm.c	/^AEEventHandlerUPP handle_core_ae_upp;$/;"	v
+iAbout	addtwotm.c	/^#define iAbout	/;"	d	file:
+iAbout	dottm.c	/^#define iAbout	/;"	d	file:
+iAbout	sumvtm.c	/^#define iAbout	/;"	d	file:
+init_macintosh	addtwotm.c	/^extern int init_macintosh( void);$/;"	p	file:	signature:( void)
+init_macintosh	addtwotm.c	/^int init_macintosh( void)$/;"	f	signature:( void)
+init_macintosh	dottm.c	/^extern int init_macintosh( void);$/;"	p	file:	signature:( void)
+init_macintosh	dottm.c	/^int init_macintosh( void)$/;"	f	signature:( void)
+init_macintosh	sumvtm.c	/^extern int init_macintosh( void);$/;"	p	file:	signature:( void)
+init_macintosh	sumvtm.c	/^int init_macintosh( void)$/;"	f	signature:( void)
+mApple	addtwotm.c	/^#define mApple	/;"	d	file:
+mApple	dottm.c	/^#define mApple	/;"	d	file:
+mApple	sumvtm.c	/^#define mApple	/;"	d	file:
+mEdit	addtwotm.c	/^#define mEdit	/;"	d	file:
+mEdit	dottm.c	/^#define mEdit	/;"	d	file:
+mEdit	sumvtm.c	/^#define mEdit	/;"	d	file:
+mFile	addtwotm.c	/^#define mFile	/;"	d	file:
+mFile	dottm.c	/^#define mFile	/;"	d	file:
+mFile	sumvtm.c	/^#define mFile	/;"	d	file:
+main	addtwo.c	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+main	dot.c	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+main	sumv.c	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+main	test.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
+manual	addtwotm.c	/^	int   manual;$/;"	m	struct:func	file:	access:public
+manual	dottm.c	/^	int   manual;$/;"	m	struct:func	file:	access:public
+manual	sumvtm.c	/^	int   manual;$/;"	m	struct:func	file:	access:public
+missing_DITL	addtwotm.c	/^static unsigned short missing_DITL[] = { 5,$/;"	v	file:
+missing_DITL	dottm.c	/^static unsigned short missing_DITL[] = { 5,$/;"	v	file:
+missing_DITL	sumvtm.c	/^static unsigned short missing_DITL[] = { 5,$/;"	v	file:
+outline_hook	addtwotm.c	/^static pascal void outline_hook(DialogRef dptr, short theItem){$/;"	f	file:	signature:(DialogRef dptr, short theItem)
+outline_hook	dottm.c	/^static pascal void outline_hook(DialogRef dptr, short theItem){$/;"	f	file:	signature:(DialogRef dptr, short theItem)
+outline_hook	sumvtm.c	/^static pascal void outline_hook(DialogRef dptr, short theItem){$/;"	f	file:	signature:(DialogRef dptr, short theItem)
+outline_hook_upp	addtwotm.c	/^UserItemUPP outline_hook_upp;$/;"	v
+outline_hook_upp	dottm.c	/^UserItemUPP outline_hook_upp;$/;"	v
+outline_hook_upp	sumvtm.c	/^UserItemUPP outline_hook_upp;$/;"	v
+rAboutBox	addtwotm.c	/^#define rAboutBox	/;"	d	file:
+rAboutBox	dottm.c	/^#define rAboutBox	/;"	d	file:
+rAboutBox	sumvtm.c	/^#define rAboutBox	/;"	d	file:
+rBadSIZE	addtwotm.c	/^#define rBadSIZE	/;"	d	file:
+rBadSIZE	dottm.c	/^#define rBadSIZE	/;"	d	file:
+rBadSIZE	sumvtm.c	/^#define rBadSIZE	/;"	d	file:
+rMenuBar	addtwotm.c	/^#define rMenuBar	/;"	d	file:
+rMenuBar	dottm.c	/^#define rMenuBar	/;"	d	file:
+rMenuBar	sumvtm.c	/^#define rMenuBar	/;"	d	file:
+refuse_to_be_a_frontend	addtwotm.c	/^static int refuse_to_be_a_frontend( MLINK mlp)$/;"	f	file:	signature:( MLINK mlp)
+refuse_to_be_a_frontend	dottm.c	/^static int refuse_to_be_a_frontend( MLINK mlp)$/;"	f	file:	signature:( MLINK mlp)
+refuse_to_be_a_frontend	sumvtm.c	/^static int refuse_to_be_a_frontend( MLINK mlp)$/;"	f	file:	signature:( MLINK mlp)
+set_about_item	addtwotm.c	/^static void set_about_item(void){$/;"	f	file:	signature:(void)
+set_about_item	dottm.c	/^static void set_about_item(void){$/;"	f	file:	signature:(void)
+set_about_item	sumvtm.c	/^static void set_about_item(void){$/;"	f	file:	signature:(void)
+stdenv	addtwotm.c	/^MLEnvironment stdenv = 0;$/;"	v
+stdenv	dottm.c	/^MLEnvironment stdenv = 0;$/;"	v
+stdenv	sumvtm.c	/^MLEnvironment stdenv = 0;$/;"	v
+stdhandler	addtwotm.c	/^MLMessageHandlerObject stdhandler = (MLMessageHandlerObject)0;$/;"	v
+stdhandler	addtwotm.c	/^MLMessageHandlerObject stdhandler = 0;$/;"	v
+stdhandler	dottm.c	/^MLMessageHandlerObject stdhandler = (MLMessageHandlerObject)0;$/;"	v
+stdhandler	dottm.c	/^MLMessageHandlerObject stdhandler = 0;$/;"	v
+stdhandler	sumvtm.c	/^MLMessageHandlerObject stdhandler = (MLMessageHandlerObject)0;$/;"	v
+stdhandler	sumvtm.c	/^MLMessageHandlerObject stdhandler = 0;$/;"	v
+stdlink	addtwotm.c	/^MLINK stdlink = 0;$/;"	v
+stdlink	dottm.c	/^MLINK stdlink = 0;$/;"	v
+stdlink	sumvtm.c	/^MLINK stdlink = 0;$/;"	v
+stdyielder	addtwotm.c	/^MLYieldFunctionObject stdyielder = (MLYieldFunctionObject)0;$/;"	v
+stdyielder	addtwotm.c	/^MLYieldFunctionObject stdyielder = 0;$/;"	v
+stdyielder	dottm.c	/^MLYieldFunctionObject stdyielder = (MLYieldFunctionObject)0;$/;"	v
+stdyielder	dottm.c	/^MLYieldFunctionObject stdyielder = 0;$/;"	v
+stdyielder	sumvtm.c	/^MLYieldFunctionObject stdyielder = (MLYieldFunctionObject)0;$/;"	v
+stdyielder	sumvtm.c	/^MLYieldFunctionObject stdyielder = 0;$/;"	v
+substract	fmodule.f	/^        subroutine substract(/;"	s	module:fmodule
+sumv	sumv.c	/^double sumv(double *v, long vlen){$/;"	f	signature:(double *v, long vlen)
+sumv	sumvtm.c	/^double sumv P(( double * _tp1, long _tpl1));$/;"	p	file:	signature:( double * _tp1, long _tpl1)
+takefc	fmodule.f	/^        subroutine takefc(/;"	s	module:fmodule
