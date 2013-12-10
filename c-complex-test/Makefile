@@ -1,4 +1,4 @@
-CC=icc
+CC=icpc
 CCflag=-Wall -mkl
 
 .PHONY: all clean cleanxx
@@ -6,7 +6,7 @@ CCflag=-Wall -mkl
 all: main.exe 
 main.exe: main.o
 	${CC} ${CCflag} -o $@ $^
-main.o: main.c
+main.o: main.cpp
 	${CC} ${CCflag} -o $@ -c $^ 
 clean:
 	rm -rf *.o
