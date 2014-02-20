@@ -1,4 +1,4 @@
-CC=icc
+CC=icpc
 CCflag=-Wall -mkl
 
 .PHONY: all clean cleanxx

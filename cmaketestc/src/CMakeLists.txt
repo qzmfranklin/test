@@ -1,1 +1,1 @@
-ADD_EXECUTABLE(hello main.c)
+ADD_SUBDIRECTORY(helloworld)
