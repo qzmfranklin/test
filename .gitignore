@@ -1,1 +1,3 @@
 mkl_examples
+*.exe
+*.o
