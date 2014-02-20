@@ -7,7 +7,7 @@ check: ${EXE}
 	./$<
 
 %.exe: %.c
-	icpc -o $@ $^ -std=c99
+	gcc -o $@ $^ -std=c99
 
 clean:
 	rm -f *.o

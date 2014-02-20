@@ -2,7 +2,7 @@
 #include <math.h>
 /******************************************************************************/
 void print_diffmat(const int n, const double *a, const double shift);
-void get_diff(const int n, const double *a, const double diff, double *val, int *pos);
+void get_diff(const int n, const double *a, const double diff, double *val, int *row, int *col);
 /******************************************************************************/
 int main(int argc, char *argv[])
 {
@@ -18,10 +18,10 @@ int main(int argc, char *argv[])
 	print_diffmat(N,a,diff);
 	/*printf("diff_par = %8.1f\n",diff_par);*/
 
-	int pos[2];
+	int row,col;
 	double val;
-	get_diff(N,a,diff,&val,pos);
-	printf("  [%4d,%4d](%8.1lf)\n",pos[0],pos[1],val);
+	get_diff(N,a,diff,&val,&row,&col);
+	printf("  [%4d,%4d](%8.1lf)\n",row,col,val);
 
 	return 0;
 } 
@@ -39,24 +39,14 @@ void print_diffmat(const int n, const double *a, const double shift)
 } 
 
 /**************************************/
-static void cmp(double *val, int *pos, double d, int i, int j)
-{
-	if (fabs(d)<fabs(*val)) {
-		*val = d;
-		pos[0] = i;
-		pos[1] = j;
-	}
-}
-
-void get_diff(const int n, const double *a, const double diff, double *val, int *pos)
+void get_diff(const int n, const double *a, const double diff, double *val, int *row, int *col)
 {
 	int num_step=1;
 
 	int i=0,j=1;
+	int _i=0,_j=1;
 	double d = a[1] - a[0] - diff;
-	*val = d;
-	pos[0] = 0;
-	pos[1] = 1;
+	double _val=d;
 	printf("  [%4d,%4d](%8.1f)\n",i,j,d);
 	while(1) {
 		if (d<0.0) {
@@ -66,15 +56,21 @@ void get_diff(const int n, const double *a, const double diff, double *val, int 
 			if (j==n-1) break;
 			i++;
 			j++;
-		}
-		else {
+		} else {
 			if (i==n-2) break;
 			i++;
 		}
 		d = a[j] - a[i] - diff;
 		printf("=>[%4d,%4d](%8.1f)\n",i,j,d);
-		cmp(val,pos,d,i,j);
+		if (fabs(d)<fabs(_val)) {
+			_val = d;
+			_i = i;
+			_j = j;
+		}
 		num_step++;
 	}
+	*val = _val;
+	*row = _i;
+	*col = _j;
 	printf("num_step = %d\n",num_step);
 }
