@@ -1,0 +1,2 @@
+hello world
+sizeof(st_node)=24
