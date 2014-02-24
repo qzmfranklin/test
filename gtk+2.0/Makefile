@@ -1,11 +1,16 @@
-EXE:=plusminus toolbar menu message font-selection-dialog file-chooser-dialog
+EXE:=simple center icon increment menu manymenu fancymenu \
+	checkmenuitem toolbar undoredo simplesignal
+
+
+.PHONY:
+
 
 all: ${EXE}
-
-%: %.c
-	icc -o $@ $^ `pkg-config --libs --cflags gtk+-2.0`
 
 clean:
 	rm -f *.o
 cleanxx:
 	rm -f *.o ${EXE}
+
+%: %.c
+	icc -o $@ $^ `pkg-config --libs --cflags gtk+-2.0`
