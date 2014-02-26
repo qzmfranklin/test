@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "heap.h"
+#include "heapsort.h"
 /******************************************************************************/
 int main(int argc, char const* argv[])
 { 

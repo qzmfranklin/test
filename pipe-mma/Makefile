@@ -3,10 +3,9 @@ CXXFLAGS:=-O3 -MMD -MP -restrict
 INCS:=
 LIBS:=
 
--include heapsort.d
--include test_heapsort.d
+-include test_pipe.d
 
-check: test_heapsort.txt
+check: test_pipe.txt
 
 clean:
 	rm -f *.o *.d
@@ -16,7 +15,7 @@ cleanxx:
 %.txt: %.exe
 	./$<
 
-test_%.exe: test_%.o %.o
+test_%.exe: test_%.o
 	${CXX} $^ -o $@ ${LIBS}
 
 %.o: %.cpp

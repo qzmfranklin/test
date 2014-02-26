@@ -3,19 +3,11 @@
 /******************************************************************************/
 int main(int argc, char const* argv[])
 {
-	Vector v1(5);
-	v1.Print();
+	Vector v1(4);
+	v1 = 1.5;
 
-	v1(2)=0.9;
-	v1.Print();
-
-	Vector v2(5);
-	v2=5.0;
-
-	(v2-v1).Print();
-
-
-	printf("\n");
+	printf("norm\t= %lf\n",norm(v1));
+	printf("norm\t= %lf\n",v1.norm());
 
 	return 0;
 }

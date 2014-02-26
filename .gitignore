@@ -1,3 +1,4 @@
 mkl_examples
 *.exe
 *.o
+*.d
