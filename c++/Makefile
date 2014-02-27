@@ -1,5 +1,5 @@
 EXE:=test.exe
-SRC:=Vector.cpp
+SRC:=Vector.cpp Matrix.cpp
 
 all: ${EXE} ${SRC:%.cpp=%.o} ${EXE:%.exe=%.o}
 
@@ -16,4 +16,3 @@ clean:
 	rm -f *.o
 cleanxx:
 	rm -f *.o ${EXE}
-

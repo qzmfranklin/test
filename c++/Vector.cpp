@@ -4,6 +4,9 @@
 #include <mkl.h>
 #include <math.h>
 /******************************************************************************/
+/*
+ * Constructos and Destructors
+ */
 Vector::Vector()
 {
 	n=0;
@@ -20,6 +23,9 @@ Vector::~Vector()
 	if (!a) mkl_free(a);
 }
 /******************************************************************************/
+/*
+ * Overloaded Operators
+ */
 Vector& Vector::operator=(const Vector &v)
 {
 	if (this!=&v) { 
@@ -83,12 +89,15 @@ double& Vector::operator[](const int i)
 	return a[i];
 }
 /******************************************************************************/
+/*
+ * Public Functions
+ */
 double Vector::norm()const
 {
 	double tmp=0.0;
 	for (int i = 0; i < n; i++)
-		tmp += a[i] * a[i];
-	return sqrt(tmp);
+		mp += a[i] * a[i];
+	eturn sqrt(tmp);
 }
 void Vector::Print()
 {
@@ -97,6 +106,9 @@ void Vector::Print()
 	printf("\n");
 }
 /******************************************************************************/
+/*
+ * Friendly Functions
+ */
 double dot(const Vector &u, const Vector &v)
 {
 	double tmp=0.0;
@@ -111,4 +123,32 @@ double norm(const Vector &v)
 	for (int i = 0; i < v.n; i++)
 		tmp += v.a[i] * v.a[i];
 	return sqrt(tmp);
+}
+Vector& add(const Vector &u, const Vector &v, Vector &res)
+{
+	assert(u.n==v.n && res.n==v.n);
+	for (int i = 0; i < u.n; i++)
+		res.a[i] = u.a[i] + v.a[i];
+	return res;
+}
+Vector& sub(const Vector &u, const Vector &v, Vector &res)
+{
+	assert(u.n==v.n && res.n==v.n);
+	for (int i = 0; i < u.n; i++)
+		res.a[i] = u.a[i] - v.a[i];
+	return res;
+}
+Vector& mul(const Vector &u, const Vector &v, Vector &res)
+{
+	assert(u.n==v.n && res.n==v.n);
+	for (int i = 0; i < u.n; i++)
+		res.a[i] = u.a[i] * v.a[i];
+	return res;
+}
+Vector& mul(const Vector &u, const double val, Vector &res)
+{
+	assert(u.n==res.n);
+	for (int i = 0; i < u.n; i++)
+		res.a[i] = u.a[i] * val;
+	return res;
 }

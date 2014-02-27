@@ -1,6 +1,7 @@
 #ifndef _VECTOR_H_
 #define _VECTOR_H_
 /******************************************************************************/
+class Matrix;
 class Vector {
 	private: 
 		unsigned int n;
@@ -24,8 +25,14 @@ class Vector {
 		double norm()const;
 		void Print();
 
+		friend Vector& add(const Vector &u, const Vector &v, Vector &res);
+		friend Vector& sub(const Vector &u, const Vector &v, Vector &res);
+		friend Vector& mul(const Vector &u, const Vector &v, Vector &res);
+		friend Vector& mul(const Vector &u, const double val, Vector &res);
+
 		friend double dot(const Vector &u, const Vector &v);
 		friend double norm(const Vector &u); 
+		friend class Matrix;
 };
 /******************************************************************************/
 #endif
