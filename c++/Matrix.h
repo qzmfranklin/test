@@ -7,6 +7,10 @@ class Matrix {
 		unsigned int m,n;
 		double *a;
 	public:
+		/* 
+		 * Assume colum-major storage, allocate new space and copy
+		 * content in a.
+		 */
 		Matrix(const unsigned int m, const unsigned int n, const double *a);
 		~Matrix();
 
