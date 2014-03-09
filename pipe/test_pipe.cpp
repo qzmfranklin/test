@@ -2,7 +2,7 @@
 /******************************************************************************/
 void py()
 {
-	FILE *pypipe = popen("python3","w");
+	FILE *pypipe = popen("python","w");
 	if (!pypipe) return;
 
 	fprintf(pypipe,"import numpy as np\n");
@@ -17,18 +17,29 @@ void py()
 	pclose(pypipe);
 }
 
-void mma()
+void mtlb()
 {
-	FILE *pipe = popen("MathKernel -script","w");
+	FILE *pipe = popen("matlab -nodesktop -nosplash","w");
 	if (!pipe) return;
+	fprintf(pipe,"n=50;\n");
+	fprintf(pipe,"r=rand(n,1);\n");
+	fprintf(pipe,"plot(r);\n");
+	fprintf(pipe,"m=mean(r);\n");
+	fprintf(pipe,"hold on\n");
+	fprintf(pipe,"plot([0,n],[m,m])\n");
+	fprintf(pipe,"hold off\n");
+	fprintf(pipe,"title('Mean of Random Uniform Data')\n"); 
+	fprintf(pipe,"hgexport(gcf,'figure1',hgexport('factorystyle'),'Format','eps')\n");
+	fprintf(pipe,"exit\n");
 
 	pclose(pipe);
 }
 
 int main(int argc, char *argv[])
 {
-	py();
-	//mma();
+	//py();
+	mtlb();
 	
+
 	return 0;
 }

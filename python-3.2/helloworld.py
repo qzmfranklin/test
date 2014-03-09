@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+#! /usr/bin/env python
 
 """
 Demo of spines offset from the axes (a.k.a. "dropped spines").
