@@ -19,10 +19,11 @@ void py()
 
 void mtlb()
 {
-	FILE *pipe = popen("matlab -nodesktop -nosplash","w");
+	FILE *pipe = popen("env matlab -nodesktop -nosplash","w");
 	if (!pipe) return;
 	fprintf(pipe,"n=50;\n");
 	fprintf(pipe,"r=rand(n,1);\n");
+	fprintf(pipe,"set(gcf,'Visible','off')\n");
 	fprintf(pipe,"plot(r);\n");
 	fprintf(pipe,"m=mean(r);\n");
 	fprintf(pipe,"hold on\n");
