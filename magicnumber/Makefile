@@ -4,4 +4,7 @@ check: ${EXE}
 	./$<
 
 %.exe: %.cpp
-	icpc -o $@ $^ 
+	@icpc -o $@ $^ 
+
+clean:
+	rm *.exe *.s *.log *.o

@@ -94,8 +94,7 @@ static int reap3(struct queue_t *q[3])
 			queue_pop(q[2]);
 			return a[2];
 		}
-	}
-	else if (a[0]<a[1]) {
+	} else if (a[0]<a[1]) {
 		if (a[0]<a[2]) {
 			queue_pop(q[0]);
 			return a[0];
@@ -129,17 +128,19 @@ int magic3_next(struct magic3_t *m)
 
 int main(int argc, char const* argv[])
 {
-	printf("Enter three positive integers separated by space: ");
+	//printf("Enter three positive integers separated by space: ");
 	int base[3];
 	scanf("%d %d %d",base,base+1,base+2);
+	//printf("Enter the number of terms to print: ");
+	int num;
+	scanf("%d",&num);
 
 	struct magic3_t *m = magic3_create(base);
+	for (int i = 0; i < num; i++)
+		printf("%d\n",magic3_next(m));
 
-	for (int i = 0; i < 20; i++)
-		printf("[%d] %d\n",i+1,magic3_next(m));
-
-	for (int i = 0; i < 3; i++)
-		printf("queue[%d]->size = %d\n",i,m->queue[i]->size);
+	//for (int i = 0; i < 3; i++)
+		//printf("queue[%d]->size = %d\n",i,m->queue[i]->size);
 
 	return 0;
 }
