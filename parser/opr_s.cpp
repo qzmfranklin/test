@@ -44,7 +44,9 @@ enum OPR_CODE opr_stack_pop(struct opr_stack_t *s)
 }
 void opr_stack_print(struct opr_stack_t *s)
 {
-	for (int i = 0; i <= s->curr; i++)
-		printf("%c ",opr2char(s->data[i]));
+	for (int i = 0; i <= s->curr; i++) {
+		char c=opr2char(s->data[i]);
+		printf("[%d]%c(%d) ",i,c,c);
+	}
 	printf("\n");
 }

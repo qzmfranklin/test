@@ -4,13 +4,23 @@
 enum OPR_CODE {
 	OPR_CODE_EPT = 0,	// empty operator
 	OPR_CODE_NAO = 1,	// not an operator
-	OPR_CODE_ADD = 100,	// a + b
-	OPR_CODE_SUB = 101,	// a - b
-	OPR_CODE_MUL = 400,	// a * b
-	OPR_CODE_DIV = 401,	// a / b
-	OPR_CODE_POW = 600,	// a ^ b
+
+
+	OPR_CODE_ADD = 300,	// a + b
+	OPR_CODE_SUB = 301,	// a - b
+
+	OPR_CODE_MUL = 500,	// a * b
+	OPR_CODE_DIV = 501,	// a / b
+
+	OPR_CODE_POW = 700,	// a ^ b
+
 	OPR_CODE_FAC = 900,	// a!
+
+	OPR_CODE_LFT = 9000,	// (
+	OPR_CODE_RHT = 9001,	// )
 };
+static const int LOW_GATE=-5000;
+static const int HIGH_GATE=5000;
 
 // +: opr1>opr2
 static int opr_priority(enum OPR_CODE opr1, enum OPR_CODE opr2)
@@ -41,6 +51,12 @@ static enum OPR_CODE char2opr(const char c)
 		case '!':
 			opr=OPR_CODE_FAC;
 			break;
+		case '(':
+			opr=OPR_CODE_LFT;
+			break;
+		case ')':
+			opr=OPR_CODE_RHT;
+			break;
 		default:
 			opr=OPR_CODE_NAO;
 			break;
@@ -70,6 +86,12 @@ static char opr2char(const enum OPR_CODE opr)
 		case OPR_CODE_FAC:
 			c='!';
 			break;
+		case OPR_CODE_LFT:
+			c='(';
+			break;
+		case OPR_CODE_RHT:
+			c=')';
+			break;
 		default:
 			break;
 	}
@@ -98,6 +120,12 @@ static int opr_opdnum(enum OPR_CODE opr)
 			break;
 		case OPR_CODE_FAC:
 			res=1;
+			break;
+		case OPR_CODE_LFT:
+			res=0;
+			break;
+		case OPR_CODE_RHT:
+			res=0;
 			break;
 		default:
 			break;

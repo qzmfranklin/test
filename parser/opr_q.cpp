@@ -45,7 +45,9 @@ enum OPR_CODE opr_queue_pop(struct opr_queue_t *s)
 }
 void opr_queue_print(struct opr_queue_t *s)
 {
-	for (int i = 0; i <s->size; i++)
-		printf("%c ",opr2char(s->data[(i+s->start)%OPR_Q_CAPACITY]));
+	for (int i = 0; i <s->size; i++) {
+		char c = opr2char(s->data[(i+s->start)%OPR_Q_CAPACITY]);
+		printf("[%d]%c(%d) ",i,c,c);
+	}
 	printf("\n");
 }
