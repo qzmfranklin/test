@@ -39,9 +39,10 @@ int main(int argc, char const* argv[])
 
 	fprintf(stderr,"Enter \"quit\" to terminate process\n");
 
+	struct client_mgr_t args1={fd,300.0}, args2={fd,-1.0};
 	pthread_t tid1,tid2;
-	pthread_create(&tid1,NULL,client_recvmgr,&fd);
-	pthread_create(&tid2,NULL,client_sendmgr,&fd);
+	pthread_create(&tid1,NULL,client_recvmgr,&args1);
+	pthread_create(&tid2,NULL,client_sendmgr,&args2);
 	pthread_join(tid1,NULL);
 	pthread_join(tid2,NULL);
 

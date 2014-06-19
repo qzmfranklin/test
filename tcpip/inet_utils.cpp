@@ -1,17 +1,39 @@
 #include "inet_utils.h"
 
+static void *get_addr(struct sockaddr *p)
+{
+	switch (p->sa_family) {
+		case AF_INET:
+			return &(((struct sockaddr_in  *)p)->sin_addr);
+		case AF_INET6:
+			return &(((struct sockaddr_in6 *)p)->sin6_addr);
+		default:
+			return NULL;
+	}
+}
+
+void get_ipaddrstr(void *addr, char *addrstr)
+{
+	struct sockaddr *p = (struct sockaddr*)addr;
+	inet_ntop(p->sa_family,get_addr(p),addrstr,INET6_ADDRSTRLEN);
+		//((struct sockaddr *)addr)->sa_family,
+		//get_addr((struct sockaddr *)addr),
+		//addstr,INET6_ADDRSTRLEN);
+}
+
 struct addrinfo *get_addrinfo_list( 
 		const char *addr, 
 		const char *port,
 		const int socktype)
 {
 	struct addrinfo hint;
+	memset(&hint,0,sizeof(hint));
 	hint.ai_family   = AF_UNSPEC;
 	hint.ai_socktype = socktype;
 	struct addrinfo *res;
 	int rval = getaddrinfo(addr,port,&hint,&res);
 	if (rval) {
-		perror("getaddrinfo");
+		perror("get_addrinfo_list: getaddrinfo");
 		exit(1);
 	}
 	return res;
@@ -23,13 +45,14 @@ struct addrinfo *get_addrinfo_list_server(
 		const int socktype)
 {
 	struct addrinfo hint;
+	memset(&hint,0,sizeof(hint));
 	hint.ai_family   = AF_UNSPEC;
 	hint.ai_socktype = socktype;
 	hint.ai_flags    = AI_PASSIVE; // passive open
 	struct addrinfo *res;
 	int rval = getaddrinfo(addr,port,&hint,&res);
 	if (rval) {
-		perror("getaddrinfo");
+		perror("get_addrinfo_list: getaddrinfo");
 		exit(1);
 	}
 	return res;
@@ -65,6 +88,14 @@ void print_addrinfo(const struct addrinfo *p)
 		break;
 	}
 	printf("%s[%5d]: %s\n",ipver,port,addrstr);
+}
+
+void print_addrinfo_list(const struct addrinfo *list)
+{
+	while (list!=NULL) {
+		print_addrinfo(list);
+		list = list->ai_next;
+	}
 }
 
 int try_connect(struct addrinfo *plist)
@@ -141,7 +172,11 @@ int pollerr(const int revents)
 void *client_sendmgr(void *args)
 {
 	fprintf(stderr,"sendmgr starts\n");
-	int fd=*(int*)args;
+
+	int    fd  =((struct client_mgr_t*)args)->fd;
+	double sec =((struct client_mgr_t*)args)->timeout_sec;
+	int    timeout = sec>=0.0?(int)(sec*1000):-1;
+
 	char buf[BUFSIZ];
 	buf[0]=0;
 
@@ -186,8 +221,12 @@ void *client_sendmgr(void *args)
 void *client_recvmgr(void *args)
 {
 	fprintf(stderr,"recvmgr starts\n");
-	int fd=*(int*)args;
-	char buf[BUFSIZ];
+
+	int    fd  =((struct client_mgr_t*)args)->fd;
+	double sec =((struct client_mgr_t*)args)->timeout_sec;
+	int    timeout = sec>=0.0?(int)(sec*1000):-1;
+
+	char   buf[BUFSIZ];
 	const size_t BLKSZ=128;
 
 	// poll the socket fd for incoming message
@@ -196,7 +235,7 @@ void *client_recvmgr(void *args)
 	ufds.events = POLLIN;
 
 	while(1) {
-		int rval = poll(&ufds,1,300000);
+		int rval = poll(&ufds,1,timeout);
 		if (rval==-1) {
 			perror("recvmgr: poll");
 			break;

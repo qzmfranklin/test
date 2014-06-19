@@ -13,8 +13,12 @@ clean:
 	rm -f *.d *.o *.exe
 
 -include inet_utils.d
--include chat_client.d
--include chat_server.d
 
+-include showip.d
+showip.exe: showip.o inet_utils.o
+
+-include chat_client.d
 chat_client.exe: chat_client.o inet_utils.o
+
+-include chat_server.d
 chat_server.exe: chat_server.o inet_utils.o
