@@ -69,19 +69,26 @@ void print_addr(const char *addr)
 
 int main(int argc, char const* argv[])
 {
-	char hostname[200];
-	gethostname(hostname,200);
-	print_addr(hostname);
+	if (argc<2) perror("no input arg");
 
-	printf("Enter the IP address(es) you want to see. ");
-	printf("Type \'quit\' to stop testing\n");
-	char buf[200];
-
-	while (1) {
-		scanf("%s",buf);
-		if (strstr(buf,"quit")) break;
-		print_addr(buf);
-	}
-
+	print_addr(argv[1]);
+/*
+ *
+ *
+ *        char hostname[200];
+ *        gethostname(hostname,200);
+ *        print_addr(hostname);
+ *
+ *        printf("Enter the IP address(es) you want to see. ");
+ *        printf("Type \'quit\' to stop testing\n");
+ *        char buf[200];
+ *
+ *        while (1) {
+ *                scanf("%s",buf);
+ *                if (strstr(buf,"quit")) break;
+ *                print_addr(buf);
+ *        }
+ *
+ */
 	return 0;
 }

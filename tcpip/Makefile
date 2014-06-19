@@ -1,4 +1,4 @@
-exe:= showip.exe server.exe client.exe
+exe:= showip.exe server.exe client.exe chat_server.exe chat_client.exe
 
 all: ${exe}
 

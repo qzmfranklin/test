@@ -61,7 +61,7 @@ int tfqmr(const Matrix& A, Vector& x, const Vector& b, const Precond1& M1, const
 		sigma = rtilde.dot(v);
 
 		// 10. alpha=rho/sigma
-		if (sigma==0.) { iter.fail(5, "tfqmr breakdown: sigma=0"); break; }
+		if (sigma==0.) { iter.breakdown(5, "tfqmr breakdown: sigma=0"); break; }
 		alpha = rho / sigma;
 
 		// 11. y2k=y(2k-1)-alpha*v
@@ -84,11 +84,11 @@ int tfqmr(const Matrix& A, Vector& x, const Vector& b, const Precond1& M1, const
 
 		// 18. d=y0+((theta0^2)*eta0/alpha)*d         //need check breakdown
 		// d = y1 + ( theta * theta * eta / alpha ) * d;
-		if (alpha==0.) { iter.fail(3, "tfqmr breakdown: alpha=0"); break; }
+		if (alpha==0.) { iter.breakdown(3, "tfqmr breakdown: alpha=0"); break; }
 		y1.add(theta*theta*eta/alpha,d,d);
 
 		// 14. theta=||w||_2/tau0       //need check breakdown
-		if (tau==0.) { iter.fail(2, "tfqmr breakdown: tau=0"); break; }
+		if (tau==0.) { iter.breakdown(2, "tfqmr breakdown: tau=0"); break; }
 		theta=w.norm2()/tau; // tau is not updated yet
 
 		// 15. c=1/sqrt(1+theta^2)
@@ -125,11 +125,11 @@ int tfqmr(const Matrix& A, Vector& x, const Vector& b, const Precond1& M1, const
 
 		// 18. d=y0+((theta0^2)*eta0/alpha)*d
 		// d = y0 + ( theta * theta * eta / alpha ) * d;
-		if (alpha==0.) { iter.fail(3,"tfqmr breakdown: alpha=0"); break; }
+		if (alpha==0.) { iter.breakdown(3,"tfqmr breakdown: alpha=0"); break; }
 		y0.add(theta*theta*eta/alpha,d,d);
 
 		// 14. theta=||w||_2/tau0
-		if (tau==0.) { iter.fail(2, "tfqmr breakdown: tau=0"); break; }
+		if (tau==0.) { iter.breakdown(2, "tfqmr breakdown: tau=0"); break; }
 		//theta = itl::two_norm(w) / tau;
 		theta = w.norm2()/tau;
 
@@ -161,7 +161,7 @@ int tfqmr(const Matrix& A, Vector& x, const Vector& b, const Precond1& M1, const
 		rho0 = rho;
 		//rho = itl::dot(rtilde, w);
 		rho  = rtilde.dot(w);
-		if (rho0==0.) { iter.fail(4, "tfqmr breakdown: beta=0"); break; }
+		if (rho0==0.) { iter.breakdown(4, "tfqmr breakdown: beta=0"); break; }
 		beta=rho/rho0;
 
 		// 24. y=w+beta*y0
