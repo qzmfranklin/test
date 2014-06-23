@@ -7,7 +7,7 @@ all: ${exe}
 	${CXX} -o $@ $^
 
 %.o: %.cpp
-	${CXX} -c -o $@ $< -MMD -MP 
+	${CXX} -o $@ $< -c -MMD -MP 
 
 clean:
 	rm -f *.d *.o *.exe
@@ -22,3 +22,12 @@ chat_client.exe: chat_client.o inet_utils.o
 
 -include chat_server.d
 chat_server.exe: chat_server.o inet_utils.o
+
+#-include chat.d
+#chat.exe: chat.o inet_utils.o
+
+-include server.d
+server.exe: server.o
+
+-include client.d
+client.exe: client.o

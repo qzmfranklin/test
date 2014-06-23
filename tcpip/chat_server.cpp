@@ -13,6 +13,42 @@ static void sigchld_handler(int s)
 	while(waitpid(-1, NULL, WNOHANG) > 0);
 }
 
+static void *server_recvmgr(void *args)
+{
+	fprintf(stderr,"recvmgr starts\n");
+
+	int    fd  =((struct client_mgr_t*)args)->fd;
+	double sec =((struct client_mgr_t*)args)->timeout_sec;
+	int    timeout = sec>=0.0?(int)(sec*1000):-1;
+
+	char   buf[BUFSIZ];
+	const size_t BLKSZ=128;
+
+	// poll the socket fd for incoming message
+	struct pollfd ufds;
+	ufds.fd     = fd;
+	ufds.events = POLLIN;
+
+	while(1) {
+		int rval = poll(&ufds,1,timeout);
+		if (rval==-1) {
+			perror("recvmgr: poll");
+			break;
+		} else if (rval==0) {
+			fprintf(stderr,"Timeout occured after %fs\n",sec);
+			break;
+			exit(1);
+		}
+		if (pollerr(ufds.revents)) exit(1);
+		int bytesread = read(fd,buf,BLKSZ);
+		buf[bytesread]=0;
+		//fprintf(stderr,"%s",buf);
+		printf("%s\n",buf);
+	}
+	fprintf(stderr,"recvmgr ends\n");
+	return NULL;
+}
+
 int main(int argc, char const* argv[])
 {
 	if (argc<2) perr("usage: chat_server [port]");
@@ -38,20 +74,17 @@ int main(int argc, char const* argv[])
 		exit(1);
 	}
 
-	// start a thread to monitor stdin for user input here: TODO
-
 	while(1) {
-		struct sockaddr_storage skaddr;
+		struct sockaddr_storage addr;
 		socklen_t addr_len;
-		int client_fd = accept(fd,(struct sockaddr *)&skaddr,&addr_len);
+		int client_fd = accept(fd,(struct sockaddr *)&addr,&addr_len);
 		if (fd==-1) {
 			perror("accept");
 			exit(1);
 		}
-
-		char addrstr[INET6_ADDRSTRLEN];
-		get_ipaddrstr(&skaddr,addrstr);
-		printf("server: got connection from %s\n",addrstr);
+		fprintf(stderr,"Got connection from\n");
+		print_sockaddr((struct sockaddr*)&addr);
+		fprintf(stderr,"\n");
 
 		int pid=fork();
 		if (pid<0) {
@@ -60,9 +93,10 @@ int main(int argc, char const* argv[])
 		} else if (pid==0) { 
 			// child
 			close(fd);
-
-			// do something
-			write(client_fd,"Hello!",6);
+			const char welcome[] = "Welcome!";
+			//write(client_fd,welcome,sizeof(welcome));
+			struct client_mgr_t args={client_fd,60.0};
+			server_recvmgr(&args);
 
 			close(client_fd);
 			exit(0);

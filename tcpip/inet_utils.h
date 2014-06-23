@@ -1,3 +1,6 @@
+#ifndef _INET_UTILS_H_
+#define _INET_UTILS_H_
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -9,16 +12,14 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <arpa/inet.h>
+#include <netinet/in.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/*
- * Get ipv4/6 address string from struct sockaddr
- */
-//void get_ipaddrstr(struct sockaddr *skaddr, char *addstr); //obselete
-void get_ipaddrstr(void *addr, char *addstr);
+void *get_in_addr(const void *addr);
+void get_ipaddrstr(const void *addr, char *addrstr);
 
 /*
  * Copied from Divakar Viswanath, added port
@@ -36,6 +37,7 @@ struct addrinfo *get_addrinfo_list_server(
 /*
  * Print ipv4/6 address
  */
+void print_sockaddr(const struct sockaddr *p);
 void print_addrinfo(const struct addrinfo *p);
 void print_addrinfo_list(const struct addrinfo *p);
 
@@ -68,3 +70,4 @@ void *client_recvmgr(void *args);
 }
 #endif
 
+#endif

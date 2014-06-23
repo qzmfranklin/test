@@ -1,24 +1,35 @@
 #include "inet_utils.h"
 
-static void *get_addr(struct sockaddr *p)
+void *get_in_addr(const void *addr)
 {
+	struct sockaddr *p = (struct sockaddr*)addr;
 	switch (p->sa_family) {
-		case AF_INET:
-			return &(((struct sockaddr_in  *)p)->sin_addr);
-		case AF_INET6:
-			return &(((struct sockaddr_in6 *)p)->sin6_addr);
-		default:
-			return NULL;
+	case AF_INET:
+		return &(((struct sockaddr_in  *)p)->sin_addr);
+	case AF_INET6:
+		return &(((struct sockaddr_in6 *)p)->sin6_addr);
+	default:
+		return NULL;
 	}
 }
 
-void get_ipaddrstr(void *addr, char *addrstr)
+int get_addrstrlen(const void *addr)
 {
 	struct sockaddr *p = (struct sockaddr*)addr;
-	inet_ntop(p->sa_family,get_addr(p),addrstr,INET6_ADDRSTRLEN);
-		//((struct sockaddr *)addr)->sa_family,
-		//get_addr((struct sockaddr *)addr),
-		//addstr,INET6_ADDRSTRLEN);
+	switch (p->sa_family) {
+	case AF_INET:
+		return INET_ADDRSTRLEN;
+	case AF_INET6:
+		return INET6_ADDRSTRLEN;
+	default:
+		return -1;
+	}
+}
+
+void get_ipaddrstr(const void *addr, char *addrstr)
+{
+	struct sockaddr *p = (struct sockaddr*)addr;
+	inet_ntop(p->sa_family,get_in_addr(p),addrstr,get_addrstrlen(p));
 }
 
 struct addrinfo *get_addrinfo_list( 
@@ -61,40 +72,48 @@ struct addrinfo *get_addrinfo_list_server(
 
 static struct sockaddr_in *ipv4;
 static struct sockaddr_in6 *ipv6;
-void print_addrinfo(const struct addrinfo *p)
+
+void print_sockaddr(const struct sockaddr *p)
 {
-	char ipver[200];
 	void *addr;
 	int  port;
 	char addrstr[INET6_ADDRSTRLEN];
-	switch (p->ai_family) {
+	switch (p->sa_family) {
 	case AF_INET:
-		ipv4 = (struct sockaddr_in *)p->ai_addr;
+		ipv4 = (struct sockaddr_in *)p;
 		addr = &(ipv4->sin_addr);
 		inet_ntop(AF_INET,addr,addrstr,INET_ADDRSTRLEN);
-		strcpy(ipver,"IPV4");
 		port = ipv4->sin_port;
 		break;
 	case AF_INET6:
-		ipv6 = (struct sockaddr_in6 *)p->ai_addr;
+		ipv6 = (struct sockaddr_in6 *)p;
 		addr = &(ipv6->sin6_addr);
 		inet_ntop(AF_INET6,addr,addrstr,INET6_ADDRSTRLEN);
-		strcpy(ipver,"IPV6");
 		port = ipv6->sin6_port;
 		break;
 	default:
 		fprintf(stderr,"invalid ip address family, abort\n");
+		fprintf(stderr,"AF_INET   = %d\n",AF_INET);
+		fprintf(stderr,"AF_INET6  = %d\n",AF_INET6);
+		fprintf(stderr,"sa_family = %d\n",p->sa_family);
 		exit(1);
 		break;
 	}
-	printf("%s[%5d]: %s\n",ipver,port,addrstr);
+	fprintf(stderr,"[%5d] %s",port,addrstr);
+}
+
+void print_addrinfo(const struct addrinfo *p)
+{
+	print_sockaddr(p->ai_addr);
 }
 
 void print_addrinfo_list(const struct addrinfo *list)
 {
 	while (list!=NULL) {
+		fprintf(stderr,"\t");
 		print_addrinfo(list);
 		list = list->ai_next;
+		fprintf(stderr,"\n");
 	}
 }
 
@@ -151,7 +170,7 @@ int try_bind(struct addrinfo *plist)
 	if (p==NULL) 
 		fd=-1;
 	else 
-		fprintf(stderr,"Bound\n");
+		fprintf(stderr,"Bound to port\n");
 	return fd;
 }
 
@@ -185,8 +204,7 @@ void *client_sendmgr(void *args)
 	ufds.fd     = STDIN_FILENO;
 	ufds.events = POLLIN;
 
-	// timeout after 5min
-	fprintf(stderr,"local>");
+	//fprintf(stderr,"local>");
 	while(1) {
 		int rval=poll(&ufds,1,-1);
 		if (rval==-1) {
@@ -210,8 +228,7 @@ void *client_sendmgr(void *args)
 		}
 
 		write(fd,buf,len-1);
-		fprintf(stderr,"local>");
-		//printf("local>");
+		//fprintf(stderr,"local>");
 	}
 
 	fprintf(stderr,"sendmgr ends\n");
@@ -240,7 +257,7 @@ void *client_recvmgr(void *args)
 			perror("recvmgr: poll");
 			break;
 		} else if (rval==0) {
-			fprintf(stderr,"Timeout occured after 5min\n");
+			fprintf(stderr,"Timeout occured after %fs\n",sec);
 			exit(1);
 		}
 		if (pollerr(ufds.revents)) exit(1);
@@ -252,3 +269,5 @@ void *client_recvmgr(void *args)
 	fprintf(stderr,"recvmgr ends\n");
 	return NULL;
 }
+
+
