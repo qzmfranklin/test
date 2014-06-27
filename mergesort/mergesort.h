@@ -4,7 +4,7 @@
 extern "C" {
 #endif
 
-void mergesort(int size, int *a);
+void mergesort(const int size, int *a);
 	
 #ifdef __cplusplus
 }

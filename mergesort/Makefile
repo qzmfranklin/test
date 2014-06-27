@@ -6,8 +6,9 @@ LIBS:=
 -include mergesort.d
 -include test_mergesort.d
 
-all: mergesort.exe
-#check: test_mergesort.txt
+all: mergesort.o
+
+check: test_mergesort.txt
 
 clean:
 	rm -f *.o *.d
