@@ -1,0 +1,57 @@
+digraph datavis_flow {
+        size = "160, 160!"
+
+        /*raw_qpmeasure_test_data -> mysql_db [*/
+                /*label = "push_to_mysql.py"*/
+        /*]*/
+
+        /*mysql_db -> plottable_data [*/
+                /*label = "pull_from_mysql.py"*/
+        /*]*/
+
+        /*plottable_data -> plots [*/
+                /*label = "rendering engine"*/
+        /*]*/
+
+        raw_qpmeasure_test_data -> qpmeasure_test_data [
+                label = "post_processing.py"
+        ]
+
+        qpmeasure_test_data -> mysql_db [
+                style = dashed
+                label = "push_to_mysql.py"
+        ]
+
+        mysql_db -> raw_mysql_data [
+                style = dashed
+                label = "pull_from_mysql.py"
+        ]
+
+        raw_mysql_data -> meta_data_part0 [
+                style = dashed
+                label = "raw_mysql_to_meta.py"
+        ]
+
+        qpmeasure_test_data -> meta_data_part1 [
+                label = "qpmeasure_to_meta.py"
+        ]
+
+        meta_data_part0 -> combined_meta_data
+        meta_data_part1 -> combined_meta_data
+
+        combined_meta_data -> plottable_data [
+                label = "meta_to_plottable.py"
+        ]
+
+        plottable_data -> plots [
+                label = "rendering_engine"
+        ]
+
+        /*combined_meta_data -> plottable_data2 [*/
+                /*label = "meta_to_plottable2.py"*/
+        /*]*/
+
+        /*plottable_data2 -> plots2 [*/
+                /*label = "rendering_engine2"*/
+        /*]*/
+}

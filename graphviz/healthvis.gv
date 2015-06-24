@@ -1,0 +1,39 @@
+digraph healthvis {
+        size = "160, 160!"
+
+        raw_qpmeasure_test_data -> qpmeasure_test_data [
+                label = "post_processing.py"
+        ]
+
+        qpmeasure_test_data -> mysql_db [
+                label = "push_to_mysql.py"
+        ]
+
+	mysql_db -> raw_mysql_data [
+                label = "pull_from_mysql.py"
+        ]
+
+        raw_mysql_data -> meta_data [
+                label = "raw_mysql_to_meta.py"
+        ]
+
+        qpmeasure_test_data -> meta_data [
+                label = "qpmeasure_to_meta.py"
+        ]
+
+        meta_data -> plottable_data1 [
+                label = "meta_to_plottable1.py"
+        ]
+
+	plottable_data1 -> plots1 [
+                label = "rendering_engine1"
+        ]
+
+        meta_data -> plottable_data2 [
+                label = "meta_to_plottable2.py"
+        ]
+
+	plottable_data2 -> plots2 [
+                label = "rendering_engine2"
+        ]
+}
